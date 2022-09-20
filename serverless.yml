@@ -24,12 +24,18 @@ functions:
   hello:
     handler: handler.hello
     events:
-      - httpApi:
+      - http:
           path: /hello
-          method: get
+          method: GET
   create:
-    handler: function/createUser.create
+    handler: functions/createUser.create
     events:
-      - httpApi:
+      - http:
           path: /user/create
-          method: post
+          method: POST
+  hi:
+    handler: functions/hello.hello
+    events:
+      - http:
+          path: /user/hi
+          method: GET
