@@ -39,7 +39,7 @@ functions:
     handler: functions/updateUser.update
     events:
       - http:
-          path: /user/update
+          path: /user/update/{id}
           method: PUT
           cors: true
   get:
