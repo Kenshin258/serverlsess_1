@@ -1,6 +1,10 @@
 {
+  "scripts": {
+    "test": "jest"
+  },
   "dependencies": {
     "aws-sdk": "^2.1220.0",
+    "jest": "^29.0.3",
     "uuid": "^9.0.0"
   }
 }

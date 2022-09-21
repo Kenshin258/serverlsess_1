@@ -25,17 +25,27 @@ functions:
     handler: handler.hello
     events:
       - http:
-          path: /hello
+          path: /hello/{id}
           method: GET
+          cors: true
   create:
     handler: functions/createUser.create
     events:
       - http:
           path: /user/create
           method: POST
-  hi:
-    handler: functions/hello.hello
+          cors: true
+  update:
+    handler: functions/updateUser.update
     events:
       - http:
-          path: /user/hi
+          path: /user/update
+          method: PUT
+          cors: true
+  get:
+    handler: functions/getUser.get
+    events:
+      - http:
+          path: /user/get/{id}
           method: GET
+          cors: true
