@@ -49,3 +49,19 @@ functions:
           path: /user/get/{id}
           method: GET
           cors: true
+
+  list:
+    handler: functions/listUser.list
+    events:
+      - http:
+          path: /user/list
+          method: GET
+          cors: true
+
+  delete:
+    handler: functions/deleteUser.deleteUser
+    events:
+      - http:
+          path: user/delete/{id}
+          method: DELETE
+          cors: true

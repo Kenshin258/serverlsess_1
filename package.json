@@ -1,6 +1,18 @@
 {
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "./functions/**",
+      "./lib/**"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "lines": 90
+      }
+    }
+  },
   "scripts": {
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "dependencies": {
     "aws-sdk": "^2.1220.0",

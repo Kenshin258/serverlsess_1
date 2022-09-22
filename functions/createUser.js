@@ -27,16 +27,9 @@ module.exports.create = async (event) => {
     },
   };
 
-  try {
-    await dynamoDb.put(params).promise();
-    return {
-      status: 200,
-      item: params.Item,
-    };
-  } catch (error) {
-    return {
-      status: 500,
-      message: error.message,
-    };
-  }
+  await dynamoDb.put(params).promise();
+  return {
+    status: 200,
+    item: params.Item,
+  };
 };

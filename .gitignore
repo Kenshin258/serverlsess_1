@@ -3,3 +3,4 @@ jspm_packages
 .serverless
 yarn.lock
 test.json
+coverage

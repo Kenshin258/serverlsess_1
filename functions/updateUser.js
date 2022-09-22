@@ -20,19 +20,12 @@ module.exports.update = async (event) => {
     };
     const data = JSON.parse(event?.body);
 
-    const user = await dynamoDb.get(params).promise();
-    if (!user.Item) {
-      return {
-        status: 400,
-        message: "User not exist!",
-      };
-    }
     params.ExpressionAttributeNames = {
       "#name": "name",
     };
     params.ExpressionAttributeValues = {
-      ":name": data?.name || user.Item.name,
-      ":age": data?.age || user.Item.age,
+      ":name": data?.name,
+      ":age": data?.age,
       ":updatedAt": timestamp,
     };
     params.UpdateExpression =
