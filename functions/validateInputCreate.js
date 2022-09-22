@@ -1,4 +1,11 @@
 module.exports.validateInputCreate = (input) => {
+  if (!input) {
+    return {
+      message: "Bad request!",
+      pass: false,
+    };
+  }
+
   if (!input.hasOwnProperty("name")) {
     return {
       message: "Name not exist!",

@@ -8,11 +8,12 @@ const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
 module.exports.create = async (event) => {
   const timestamp = new Date().getTime();
-  const validate = validateInputCreate(event);
-  if (validate.pass === false) {
+  const data = JSON.parse(event?.body);
+
+  if (validateInputCreate(data).pass === false) {
     return {
-      status: 500,
-      message: validate.message,
+      status: 400,
+      message: validateInputCreate(data).message,
     };
   }
 
@@ -20,8 +21,8 @@ module.exports.create = async (event) => {
     TableName: process.env.DYNAMODB_TABLE,
     Item: {
       Id: uuid.v1(),
-      name: event.name,
-      age: event.age,
+      name: data.name,
+      age: data.age,
       createdAt: timestamp,
     },
   };
