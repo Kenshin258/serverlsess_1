@@ -198,7 +198,6 @@ describe("Test delete user", () => {
 describe("Test list user", () => {
   test("test list user 1", async () => {
     const response = await list();
-    console.log(response.status);
     expect(response.status).toBe(200);
   });
 });
